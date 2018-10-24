@@ -1,0 +1,27 @@
+{
+  "name": "l-passport",
+  "version": "1.0.1",
+  "description": "passport",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhulinwei/l-passport.git"
+  },
+  "keywords": [
+    "passport"
+  ],
+  "author": "Level.Z",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhulinwei/l-passport/issues"
+  },
+  "homepage": "https://github.com/zhulinwei/l-passport#readme",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
