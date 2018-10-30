@@ -23,12 +23,7 @@ class WechatStub {
 
   userInfoStub() {
      this.userInfo = sinon.stub(this.wechatStrategy, 'getUserInfo').callsFake(() => {
-      return { 
-         openid: 'openid',
-         unionid: 'unionid',
-         nickname: 'nickname',
-         headimgurl: 'headimgurl',
-      }; 
+      return { openid: 'openid', unionid: 'unionid', nickname: 'nickname', headimgurl: 'headimgurl' }; 
     });
   }
 
@@ -48,7 +43,7 @@ describe('wechat login', () => {
   it('get wechat token by code', async () => {
     wechatStub.tokenStub();
     const code = 'WECHAT_CODE';
-    const result = await wechatStrategy.getTokenByCode(code, config.appId, config.appSecret);
+    const result = await wechatStrategy.getTokenByCode(config.appId, config.appSecret, code);
     assert.ok(result.openId);
     wechatStub.clearTokenStub();
   });
@@ -64,8 +59,9 @@ describe('wechat login', () => {
   });
 
   it('get wechat authorize url', () => {
-    const redirect = wechatStrategy.getAuthorizeUrl('WECHAT_CODE');
-    assert.ok(redirect);
+    const redirect = 'WECHAT_REDIRECT';
+    const redirectUrl = wechatStrategy.getAuthorizeUrl(redirect);
+    assert.ok(redirectUrl );
   });
 
   it('start authorize', async () => {
