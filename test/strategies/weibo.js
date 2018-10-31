@@ -3,10 +3,9 @@ const assert = require('assert');
 const WeiboStrategy = require('../../lib/strategies/weibo');
 
 const config = {
-  appId: 'YOUR_Weibo_APP_ID',
-  appSecret: 'YOUR_Weibo_APP_SECRET'
+  appId: 'YOUR_WEIBO_APP_ID',
+  appSecret: 'YOUR_WEIBO_APP_SECRET'
 };
-
 
 class WeiboStub {
   constructor(weiboStrategy) {
@@ -73,7 +72,7 @@ describe('weibo login', () => {
     weiboStub.userInfoStub();
 
     const user = await weiboStrategy.authorize('WEIBO_CODE', 'WEIBO_REDIRECT');
-    assert.ok(user.openId);
+    assert.ok(user.nickname);
     weiboStub.clearTokenStub();
     weiboStub.clearUserInfoStub();
   });

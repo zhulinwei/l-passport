@@ -7,7 +7,6 @@ const config = {
   appSecret: 'YOUR_QQ_APP_SECRET'
 };
 
-
 class QQStub {
   constructor(qqStrategy) {
     this.token = {};

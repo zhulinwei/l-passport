@@ -7,7 +7,6 @@ const config = {
   appSecret: 'YOUR_WECHAT_APP_SECRET'
 };
 
-
 class WechatStub {
   constructor(wechatStrategy) {
     this.token = {};
