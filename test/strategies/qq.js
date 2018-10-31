@@ -83,7 +83,7 @@ describe('qq login', () => {
   it('get qq authorize url', () => {
     const redirect = 'QQ_REDIRECT';
     const redirectUrl = qqStrategy.getAuthorizeUrl(redirect);
-    assert.ok(redirectUrl );
+    assert.ok(redirectUrl);
   });
 
   it('start authorize', async () => {

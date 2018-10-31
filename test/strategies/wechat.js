@@ -61,7 +61,7 @@ describe('wechat login', () => {
   it('get wechat authorize url', () => {
     const redirect = 'WECHAT_REDIRECT';
     const redirectUrl = wechatStrategy.getAuthorizeUrl(redirect);
-    assert.ok(redirectUrl );
+    assert.ok(redirectUrl);
   });
 
   it('start authorize', async () => {
