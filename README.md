@@ -118,14 +118,15 @@ router.get('/login/baidu', passport.authorization('baidu'), async (ctx) => {
 ```
 
 2.动态设置
-将redirect、state、scope放在路由的Query参数中，即/login/baidu?redirect=your_redirect&state=your_state&scope=your_scope
+
+将redirect、state、scope放在路由的Query参数中，如/login/baidu?redirect=your_redirect&state=your_state&scope=your_scope
 
 ### 拓展登录策略
 l-passport已经集成如下：
-1.qq：QQ登录
-2.baidu：百度登录
-3.weibo：微博登录
-4.wechat：微信登录
+> 1.qq：QQ登录
+> 2.baidu：百度登录
+> 3.weibo：微博登录
+> 4.wechat：微信登录
 
 如果开发者觉得当前集成的登录策略无法满足需求时，可以自行拓展，其基本形式如下：
 ```js
