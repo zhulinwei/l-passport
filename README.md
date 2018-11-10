@@ -145,13 +145,11 @@ passport.use('your_stagety_name', YourStragety);
 认证完成后用户信息将挂载ctx.state.passport中，其基本格式如下：
 ```json
 {
-  "provider": "服务器提供商",
+  "provider": "服务提供商",
   "uid"     : "用户编号",
   "nickname": "用户昵称",
   "avatar"  : "用户头像",
-  "body"    : {
-    // 用户详细信息  
-  }
+  "body"    : {}
 }
 ```
 
