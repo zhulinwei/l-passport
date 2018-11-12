@@ -24,7 +24,7 @@ npm install l-passport -S
 const passport = require('l-passport');
 
 // 微信登录：设置appId与app secret
-passport.setConfigs({
+passport.initialize({
   provider: 'wechat'
   appId: 'your_app_id',
   appSecret: 'your_app_secret'
@@ -39,7 +39,7 @@ router.get('/login/wechat', passport.authorization('wechat'), async (ctx) => {
 ```js
 const passport = require('l-passport');
 
-passport.setConfigs({
+passport.initialize({
   provider: 'wechat', 
   clients: [
     { platform: 'web', appId: 'your_app_id', appSecret: 'your_app_secret' },
@@ -65,7 +65,7 @@ router.get('/login/wechat_android', passport.authorization('wechat', { platform:
 ```js
 const passport = require('l-passport');
 
-passport.setConfigs([
+passport.initialize([
   {
     provider: 'wechat', 
     clients: [
@@ -102,7 +102,7 @@ l-passport支持两种方式设置对调函数
 ```js
 const passport = require('l-passport');
 
-passport.setConfigs({
+passport.initialize({
   provider: 'baidu'
   appId: 'your_app_id',
   appSecret: 'your_app_secret',

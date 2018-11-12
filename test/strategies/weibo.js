@@ -23,7 +23,7 @@ class WeiboStub {
 
   userInfoStub() {
      this.userInfo = sinon.stub(this.weiboStrategy, 'getUserInfo').callsFake(() => {
-      return { id: 'id', screen_name: 'nickname' }; 
+      return { idstr: 'id', screen_name: 'nickname' }; 
     });
   }
 
@@ -57,7 +57,7 @@ describe('weibo login', () => {
     const openId = 'USER_OPENID';
     const accessToken = 'USER_ACCESS_TOKEN';
     const result = await weiboStrategy.getUserInfo(appId, openId, accessToken);
-    assert.ok(result.id);
+    assert.ok(result.idstr);
     weiboStub.clearUserInfoStub();
   });
 
@@ -72,7 +72,7 @@ describe('weibo login', () => {
     weiboStub.userInfoStub();
 
     const user = await weiboStrategy.authorize('WEIBO_CODE', 'WEIBO_REDIRECT');
-    assert.ok(user.nickname);
+    assert.ok(user.uid);
     weiboStub.clearTokenStub();
     weiboStub.clearUserInfoStub();
   });

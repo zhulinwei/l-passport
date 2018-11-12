@@ -68,7 +68,7 @@ describe('wechat login', () => {
     wechatStub.userInfoStub();
 
     const user = await wechatStrategy.authorize('WECHAT_CODE');
-    assert.ok(user.openId);
+    assert.ok(user.uid);
     wechatStub.clearTokenStub();
     wechatStub.clearUserInfoStub();
   });

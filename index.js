@@ -1,4 +1,10 @@
-const Passport = require('./lib/passport');
+const Passport = require('./lib');
+const QQStrategy = require('./lib/strategies/qq');
+const BaiduStrategy = require('./lib/strategies/baidu');
+const WeiboStrategy = require('./lib/strategies/weibo');
+const WechatStrategy = require('./lib/strategies/wechat');
+
+
 
 const passport = new Passport();
 // add strategy

@@ -91,7 +91,7 @@ describe('qq login', () => {
     qqStub.userInfoStub();
 
     const user = await qqStrategy.authorize('QQ_CODE');
-    assert.ok(user.openId);
+    assert.ok(user.uid);
     qqStub.clearTokenStub();
     qqStub.clearOpenIdStub();
     qqStub.clearUserInfoStub();
