@@ -1,5 +1,4 @@
 # l-passport
-==============
 
 集成微信(wechat)、QQ(qq)、百度(baidu)和微博(weibo)于一体的koa中间件与API SDK
 
@@ -88,7 +87,7 @@ router.get('/login/wechat_web', passport.authorization('wechat', { platform: 'we
   ctx.body = ctx.state.passport;
 });
 
-router.get('/login/baidu_web', passport.authorization('baidu', { platform: 'ios' }), async (ctx) => {
+router.get('/login/baidu_ios', passport.authorization('baidu', { platform: 'ios' }), async (ctx) => {
   ctx.body = ctx.state.passport;
 });
 ```
