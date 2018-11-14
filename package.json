@@ -11,7 +11,12 @@
     "url": "git+https://github.com/zhulinwei/l-passport.git"
   },
   "keywords": [
-    "passport"
+    "oauth2",
+    "passport",
+    "qq oauth",
+    "baidu oauth",
+    "weibo oauth",
+    "wechat oauth"
   ],
   "author": "Level.Z",
   "license": "ISC",
@@ -26,6 +31,8 @@
   },
   "devDependencies": {
     "koa": "^2.6.1",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "mocha": "^5.2.0",
+    "sinon": "^7.1.1"
   }
 }
