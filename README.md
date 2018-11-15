@@ -76,9 +76,9 @@ passport.initialize([
   {
     provider: 'baidu', 
     clients: [
-      { platform: 'web', appId: 'your_app_id', appSecret: 'your_app_secret' },
-      { platform: 'ios', appId: 'your_app_id', appSecret: 'your_app_secret' },
-      { platform: 'android', appId: 'your_app_id', appSecret: 'your_app_secret' },
+      { platform: 'web', appId: 'your_app_id', appSecret: 'your_app_secret', redirect: 'your_baidu_redirect' },
+      { platform: 'ios', appId: 'your_app_id', appSecret: 'your_app_secret', redirect: 'your_baidu_redirect'},
+      { platform: 'android', appId: 'your_app_id', appSecret: 'your_app_secret', redirect: 'your_baidu_redirect' },
     ]
   }
 ]);
@@ -91,6 +91,12 @@ router.get('/login/baidu_ios', passport.authorization('baidu', { platform: 'ios'
   ctx.body = ctx.state.passport;
 });
 ```
+####  配置参数说明：
+- `appId`: - 应用编号（必填）
+- `appSecret`: - 应用秘钥（必填）
+- `redirect`: - 应用回调地址（选填）
+- `scope`: - scope值（选填）
+- `state`: - state值（选填）
 
 ### Authentication Url
 注意：不同的服务提供商之间，在认证时对回调地址的处理方式各不相同，如微信不会检查回调函数，微博和QQ只需核查回调函数的域名，而百度则需要核查包括Query参数在内的整个回调地址
@@ -122,10 +128,10 @@ router.get('/login/baidu', passport.authorization('baidu'), async (ctx) => {
 
 ### 拓展登录策略
 l-passport已经集成如下：
-> 1.qq：QQ登录
-> 2.baidu：百度登录
-> 3.weibo：微博登录
-> 4.wechat：微信登录
+> * 1.qq：QQ登录
+> * 2.baidu：百度登录
+> * 3.weibo：微博登录
+> * 4.wechat：微信登录
 
 如果开发者觉得当前集成的登录策略无法满足需求时，可以自行拓展，其基本形式如下：
 ```js
