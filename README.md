@@ -92,9 +92,13 @@ router.get('/login/baidu_ios', passport.authorization('baidu', { platform: 'ios'
 });
 ```
 ####  配置参数说明：
+- `provider`: - 服务提供商（必选）
+  - 当前可选：qq、baidu、weib、owechat
 - `appId`: - 应用编号（必填）
 - `appSecret`: - 应用秘钥（必填）
 - `redirect`: - 应用回调地址（选填）
+  - 用于生成授权地址或完成授权认证
+- `platform`: - 服务平台（选填）
 - `scope`: - scope值（选填）
 - `state`: - state值（选填）
 
