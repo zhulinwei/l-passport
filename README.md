@@ -96,11 +96,10 @@ router.get('/login/baidu_ios', passport.authorization('baidu', { platform: 'ios'
   - 当前可选：qq、baidu、weibo、wechat
 - `appId`: - 应用编号（必填）
 - `appSecret`: - 应用秘钥（必填）
-- `redirect`: - 应用回调地址（选填）
-  - 用于生成授权地址或完成授权认证
 - `platform`: - 服务平台（选填）
-- `scope`: - scope值（选填）
-- `state`: - state值（选填）
+- `redirect`: - 应用回调地址（选填）
+- `scope`: - 申请的权限范围（选填）
+- `state`: - 应用当前状态，可以指定任意值，服务提供商会原封不动地返回这个值（选填）
 
 ### Authentication Url
 注意：不同的服务提供商之间，在认证时对回调地址的处理方式各不相同，如微信不会检查回调函数，微博和QQ只需核查回调函数的域名，而百度则需要核查包括Query参数在内的整个回调地址
