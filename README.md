@@ -107,7 +107,7 @@ router.get('/login/baidu_ios', passport.authorization('baidu', { platform: 'ios'
 ### Authentication Url
 注意：不同的服务提供商之间，在认证时对回调地址的处理方式各不相同，如微信不会检查回调函数，微博和QQ只需核查回调函数的域名，而百度则需要核查包括Query参数在内的整个回调地址
 
-l-passport支持两种方式设置对调函数
+l-passport支持两种方式设置回调函数
 
 1.配置设置
 ```js
