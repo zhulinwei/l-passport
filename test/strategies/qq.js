@@ -8,40 +8,40 @@ const config = {
 };
 
 class QQStub {
-  constructor(qqStrategy) {
+  constructor (qqStrategy) {
     this.token = {};
     this.openId = {};
     this.userInfo = {};
     this.qqStrategy = qqStrategy;
   }
 
-  tokenStub() {
+  tokenStub () {
     this.token = sinon.stub(this.qqStrategy, 'getTokenByCode').callsFake(() => {
       return { accessToken: 'access_token', refreshToken: 'refresh_token' };
     });
   }
 
-  openIdStub() {
+  openIdStub () {
     this.openId = sinon.stub(this.qqStrategy, 'getOpenIdByToken').callsFake(() => {
       return { openId: 'openid' };
     });
   }
 
-  userInfoStub() {
-     this.userInfo = sinon.stub(this.qqStrategy, 'getUserInfo').callsFake(() => {
-      return { nickname: 'nickname' }; 
+  userInfoStub () {
+    this.userInfo = sinon.stub(this.qqStrategy, 'getUserInfo').callsFake(() => {
+      return { nickname: 'nickname' };
     });
   }
 
-  clearTokenStub() {
+  clearTokenStub () {
     this.token.restore();
   }
 
-  clearOpenIdStub() {
+  clearOpenIdStub () {
     this.openId.restore();
   }
 
-  clearUserInfoStub() {
+  clearUserInfoStub () {
     this.userInfo.restore();
   }
 }
@@ -54,8 +54,8 @@ describe('qq login', () => {
     qqStub.tokenStub();
     const code = 'QQ_CODE';
     const appId = 'APPID';
-    const secret = "APPSECRET";
-    const redirect = "QQ_REDIRECT";
+    const secret = 'APPSECRET';
+    const redirect = 'QQ_REDIRECT';
     const result = await qqStrategy.getTokenByCode({ appId, secret, code, redirect });
     assert.ok(result.accessToken);
     qqStub.clearTokenStub();
