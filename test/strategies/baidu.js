@@ -8,30 +8,30 @@ const config = {
 };
 
 class BaiduStub {
-  constructor(baiduStrategy) {
+  constructor (baiduStrategy) {
     this.token = {};
     this.openId = {};
     this.userInfo = {};
     this.baiduStrategy = baiduStrategy;
   }
 
-  tokenStub() {
+  tokenStub () {
     this.token = sinon.stub(this.baiduStrategy, 'getTokenByCode').callsFake(() => {
       return { openId: 'openid', accessToken: 'access_token', refreshToken: 'refresh_token' };
     });
   }
 
-  userInfoStub() {
-     this.userInfo = sinon.stub(this.baiduStrategy, 'getUserInfo').callsFake(() => {
-      return { openid: 'openid', nickname: 'nickname' }; 
+  userInfoStub () {
+    this.userInfo = sinon.stub(this.baiduStrategy, 'getUserInfo').callsFake(() => {
+      return { openid: 'openid', nickname: 'nickname' };
     });
   }
 
-  clearTokenStub() {
+  clearTokenStub () {
     this.token.restore();
   }
 
-  clearUserInfoStub() {
+  clearUserInfoStub () {
     this.userInfo.restore();
   }
 }
@@ -44,8 +44,8 @@ describe('baidu login', () => {
     baiduStub.tokenStub();
     const code = 'BAIDU_CODE';
     const appId = 'APPID';
-    const secret = "APPSECRET";
-    const redirect = "BAIDU_REDIRECT";
+    const secret = 'APPSECRET';
+    const redirect = 'BAIDU_REDIRECT';
     const result = await baiduStrategy.getTokenByCode({ appId, secret, code, redirect });
     assert.ok(result.accessToken);
     baiduStub.clearTokenStub();
