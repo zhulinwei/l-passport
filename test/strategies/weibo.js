@@ -8,30 +8,30 @@ const config = {
 };
 
 class WeiboStub {
-  constructor(weiboStrategy) {
+  constructor (weiboStrategy) {
     this.token = {};
     this.openId = {};
     this.userInfo = {};
     this.weiboStrategy = weiboStrategy;
   }
 
-  tokenStub() {
+  tokenStub () {
     this.token = sinon.stub(this.weiboStrategy, 'getTokenByCode').callsFake(() => {
       return { uid: 'uid', accessToken: 'access_token' };
     });
   }
 
-  userInfoStub() {
-     this.userInfo = sinon.stub(this.weiboStrategy, 'getUserInfo').callsFake(() => {
-      return { idstr: 'id', screen_name: 'nickname' }; 
+  userInfoStub () {
+    this.userInfo = sinon.stub(this.weiboStrategy, 'getUserInfo').callsFake(() => {
+      return { idstr: 'id', screen_name: 'nickname' };
     });
   }
 
-  clearTokenStub() {
+  clearTokenStub () {
     this.token.restore();
   }
 
-  clearUserInfoStub() {
+  clearUserInfoStub () {
     this.userInfo.restore();
   }
 }
@@ -44,8 +44,8 @@ describe('weibo login', () => {
     weiboStub.tokenStub();
     const code = 'WEIBO_CODE';
     const appId = 'APPID';
-    const secret = "APPSECRET";
-    const redirect = "WEIBO_REDIRECT";
+    const secret = 'APPSECRET';
+    const redirect = 'WEIBO_REDIRECT';
     const result = await weiboStrategy.getTokenByCode({ appId, secret, code, redirect });
     assert.ok(result.accessToken);
     weiboStub.clearTokenStub();
