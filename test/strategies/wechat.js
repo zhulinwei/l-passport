@@ -8,29 +8,29 @@ const config = {
 };
 
 class WechatStub {
-  constructor(wechatStrategy) {
+  constructor (wechatStrategy) {
     this.token = {};
     this.userInfo = {};
     this.wechatStrategy = wechatStrategy;
   }
 
-  tokenStub() {
+  tokenStub () {
     this.token = sinon.stub(this.wechatStrategy, 'getTokenByCode').callsFake(() => {
       return { openId: 'openid', accessToken: 'access_token', refreshToken: 'refresh_token' };
     });
   }
 
-  userInfoStub() {
-     this.userInfo = sinon.stub(this.wechatStrategy, 'getUserInfo').callsFake(() => {
-      return { openid: 'openid', unionid: 'unionid', nickname: 'nickname', headimgurl: 'headimgurl' }; 
+  userInfoStub () {
+    this.userInfo = sinon.stub(this.wechatStrategy, 'getUserInfo').callsFake(() => {
+      return { openid: 'openid', unionid: 'unionid', nickname: 'nickname', headimgurl: 'headimgurl' };
     });
   }
 
-  clearTokenStub() {
+  clearTokenStub () {
     this.token.restore();
   }
 
-  clearUserInfoStub() {
+  clearUserInfoStub () {
     this.userInfo.restore();
   }
 }
@@ -46,7 +46,6 @@ describe('wechat login', () => {
     assert.ok(result.openId);
     wechatStub.clearTokenStub();
   });
-
 
   it('get wechat userinfo', async () => {
     wechatStub.userInfoStub();
