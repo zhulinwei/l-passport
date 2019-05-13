@@ -1,6 +1,6 @@
 {
   "name": "l-passport",
-  "version": "1.1.2",
+  "version": "1.1.5",
   "description": "koa middleware and api sdk for wechat oauth,qq oauth, baidu oauth and weibo oauth",
   "main": "index.js",
   "scripts": {
